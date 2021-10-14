@@ -1,4 +1,4 @@
-package com.tomgregory.entity;
+package com.byp.user.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +14,7 @@ import javax.validation.constraints.NotEmpty;
 @Getter
 @ToString
 @NoArgsConstructor
-public class ThemeParkRide {
+public class UserSession {
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
   private Long id;
@@ -25,7 +25,7 @@ public class ThemeParkRide {
   private int thrillFactor;
   private int vomitFactor;
 
-  public ThemeParkRide(String name, String description, int thrillFactor, int vomitFactor) {
+  public UserSession(String name, String description, int thrillFactor, int vomitFactor) {
     this.name = name;
     this.description = description;
     this.thrillFactor = thrillFactor;
