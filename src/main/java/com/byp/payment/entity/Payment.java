@@ -23,13 +23,16 @@ public class Payment {
   private Long id;
   @NotNull
   private Long purchaseOrderId;
+  @NotNull
+  private Long userId;
 
   private Long totalPayment;
   private PaymentStatus paymentStatus;
   private Long updatedTimestamp;
 
-  public Payment(Long purchaseOrderId, Long totalPayment, PaymentStatus paymentStatus, Long updatedTimestamp) {
+  public Payment(Long purchaseOrderId, Long userId, Long totalPayment, PaymentStatus paymentStatus, Long updatedTimestamp) {
     this.purchaseOrderId = purchaseOrderId;
+    this.userId = userId;
     this.totalPayment = totalPayment;
     this.paymentStatus = paymentStatus;
     this.updatedTimestamp = updatedTimestamp;

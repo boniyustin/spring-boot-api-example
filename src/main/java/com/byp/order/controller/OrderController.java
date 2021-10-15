@@ -85,11 +85,11 @@ public class OrderController {
     }
 
     @PostMapping(value = "/order/purchase", produces = MediaType.APPLICATION_JSON_VALUE)
-    @Transactional
     public void purchaseOrder(@Valid @RequestBody List<ShoppingCart> shoppingCarts) {
         if (CollectionUtils.isEmpty(shoppingCarts)){
             return;
         }
+        
         // set purchase order
         PurchaseOrder purchaseOrder = new PurchaseOrder();
         purchaseOrder.setUserId(shoppingCarts.get(0).getUserId());
@@ -118,6 +118,7 @@ public class OrderController {
         // set payment
         Payment payment = new Payment();
         payment.setPurchaseOrderId(purchaseOrder.getId());
+        payment.setUserId(purchaseOrder.getUserId());
         payment.setTotalPayment(totalPayment);
         payment.setUpdatedTimestamp(System.currentTimeMillis());
         payment.setPaymentStatus(PaymentStatus.PENDING);
