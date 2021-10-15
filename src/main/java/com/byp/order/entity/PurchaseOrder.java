@@ -2,6 +2,7 @@ package com.byp.order.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Getter
+@Setter
 @ToString
 @NoArgsConstructor
 public class PurchaseOrder {
@@ -20,10 +22,10 @@ public class PurchaseOrder {
   private Long id;
   @NotNull
   private Long userId;
-  private int purchaseTime;
+  private Long purchaseTimestamp;
 
-  public PurchaseOrder(@NotNull Long userId, int purchaseTime) {
+  public PurchaseOrder(@NotNull Long userId, Long purchaseTimestamp) {
     this.userId = userId;
-    this.purchaseTime = purchaseTime;
+    this.purchaseTimestamp = purchaseTimestamp;
   }
 }
