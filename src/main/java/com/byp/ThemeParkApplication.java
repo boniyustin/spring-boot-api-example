@@ -1,6 +1,6 @@
 package com.byp;
 
-import com.byp.common.JWTAuthorizationFilter;
+import com.byp.common.filter.JWTAuthorizationFilter;
 import com.byp.inventory.entity.Product;
 import com.byp.inventory.repository.ProductRepository;
 import com.byp.user.entity.UserProfile;

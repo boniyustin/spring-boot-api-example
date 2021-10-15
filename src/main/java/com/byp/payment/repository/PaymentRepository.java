@@ -8,5 +8,4 @@ import java.util.List;
 
 @Repository
 public interface PaymentRepository extends CrudRepository<Payment, Long> {
-    List<Payment> findByName(String name);
 }

@@ -20,9 +20,10 @@ public class PurchaseOrder {
   private Long id;
   @NotNull
   private Long userId;
-  @NotNull
-  private Long productId;
-  private int quantity;
   private int purchaseTime;
 
+  public PurchaseOrder(@NotNull Long userId, int purchaseTime) {
+    this.userId = userId;
+    this.purchaseTime = purchaseTime;
+  }
 }

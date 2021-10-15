@@ -1,35 +1,37 @@
 package com.byp.payment.entity;
 
+import com.byp.common.enums.PaymentStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Getter
+@Setter
 @ToString
 @NoArgsConstructor
 public class Payment {
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
   private Long id;
-  @NotEmpty
-  private String name;
-  @NotEmpty
-  private String description;
-  private int thrillFactor;
-  private int vomitFactor;
+  @NotNull
+  private Long purchaseOrderId;
 
-  public Payment(String name, String description, int thrillFactor, int vomitFactor) {
-    this.name = name;
-    this.description = description;
-    this.thrillFactor = thrillFactor;
-    this.vomitFactor = vomitFactor;
+  private Long totalPayment;
+  private PaymentStatus paymentStatus;
+  private Long updatedTimestamp;
+
+  public Payment(Long purchaseOrderId, Long totalPayment, PaymentStatus paymentStatus, Long updatedTimestamp) {
+    this.purchaseOrderId = purchaseOrderId;
+    this.totalPayment = totalPayment;
+    this.paymentStatus = paymentStatus;
+    this.updatedTimestamp = updatedTimestamp;
   }
-
 }

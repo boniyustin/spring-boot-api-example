@@ -54,8 +54,6 @@ public class OrderController {
         return summaries;
     }
 
-
-
     @PostMapping(value = "/shopping-cart/insert", produces = MediaType.APPLICATION_JSON_VALUE)
     public ShoppingCart addToCart(@Valid @RequestBody ShoppingCart shoppingCart) {
         return shoppingCartRepository.save(shoppingCart);
@@ -65,6 +63,12 @@ public class OrderController {
     @Transactional
     public void removeFromCart(@Valid @RequestBody ShoppingCart shoppingCart) {
         shoppingCartRepository.deleteByProductId(shoppingCart.getProductId());
+    }
+
+    @PostMapping(value = "/order/purhcase", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Transactional
+    public void purchaseOrder(@Valid @RequestBody List<ShoppingCart> shoppingCart) {
+        //purchaseOrderRepository.save(shoppingCart.getProductId());
     }
 
     private Map<Long, ShoppingCart> getProductShoppingCartMap(Iterable<ShoppingCart> shoppingCarts) {
