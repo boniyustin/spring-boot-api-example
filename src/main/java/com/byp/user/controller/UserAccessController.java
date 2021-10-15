@@ -32,7 +32,7 @@ public class UserAccessController {
   @PostMapping("user")
   public UserSession login(@RequestParam("user") String username, @RequestParam("password") String password) {
     //String encryptedPassword = encoder.encode(pwd);
-    // todo byp: find how to encrypt password
+    // todo byp: password needs to be encrypted
     UserProfile userProfile = userProfileRepository.findByUserNameAndPassword(username, password);
     if (userProfile == null) {
       return null;
@@ -40,7 +40,7 @@ public class UserAccessController {
     
     String token = getJWTToken(username);
     UserSession user = new UserSession();
-    user.setUserId(1L);
+    user.setUserId(userProfile.getId());
     user.setUserToken(token);
     return user;
 

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+// todo byp: looks like it's not needed
 @Repository
 public interface UserSessionRepository extends CrudRepository<UserSession, Long> {
 }

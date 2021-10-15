@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Getter
@@ -20,7 +21,7 @@ public class UserSession {
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
   private Long id;
-  @NotEmpty
+  @NotNull
   private Long userId;
   @NotEmpty
   private String userToken;

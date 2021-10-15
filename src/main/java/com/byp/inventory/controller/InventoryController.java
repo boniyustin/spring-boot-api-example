@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import javax.validation.Valid;
 
 @RestController
@@ -24,6 +25,10 @@ public class InventoryController {
     @GetMapping(value = "/products", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Product> getProducts() {
         return productRepository.findAll();
+    }
+
+    public Iterable<Product> getProductsByIds(List<Long> ids) {
+        return productRepository.findByIdIn(ids);
     }
 
     @GetMapping(value = "/product/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
