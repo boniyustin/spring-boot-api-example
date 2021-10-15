@@ -1,6 +1,6 @@
 ## Overview
 
-An example project to of Spring Boot:
+An example project of Spring Boot:
 
 ## Pre-requisites
 
