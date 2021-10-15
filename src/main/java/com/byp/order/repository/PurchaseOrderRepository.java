@@ -8,5 +8,4 @@ import java.util.List;
 
 @Repository
 public interface PurchaseOrderRepository extends CrudRepository<OrderEntry, Long> {
-    List<OrderEntry> findByName(String name);
 }

@@ -19,17 +19,8 @@ public class ShoppingCart {
   @GeneratedValue(strategy=GenerationType.AUTO)
   private Long id;
   @NotEmpty
-  private String name;
+  private Long userId;
   @NotEmpty
-  private String description;
-  private int thrillFactor;
-  private int vomitFactor;
-
-  public ShoppingCart(String name, String description, int thrillFactor, int vomitFactor) {
-    this.name = name;
-    this.description = description;
-    this.thrillFactor = thrillFactor;
-    this.vomitFactor = vomitFactor;
-  }
-
+  private Long productId;
+  private int quantity;
 }

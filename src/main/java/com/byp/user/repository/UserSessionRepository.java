@@ -8,5 +8,4 @@ import java.util.List;
 
 @Repository
 public interface UserSessionRepository extends CrudRepository<UserSession, Long> {
-    List<UserSession> findByName(String name);
 }

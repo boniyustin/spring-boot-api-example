@@ -2,6 +2,7 @@ package com.byp.user.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Getter
+@Setter
 @ToString
 @NoArgsConstructor
 public class UserSession {
@@ -19,17 +21,14 @@ public class UserSession {
   @GeneratedValue(strategy=GenerationType.AUTO)
   private Long id;
   @NotEmpty
-  private String name;
+  private Long userId;
   @NotEmpty
-  private String description;
-  private int thrillFactor;
-  private int vomitFactor;
+  private String userToken;
+  private String expiryTime;
 
-  public UserSession(String name, String description, int thrillFactor, int vomitFactor) {
-    this.name = name;
-    this.description = description;
-    this.thrillFactor = thrillFactor;
-    this.vomitFactor = vomitFactor;
+  public UserSession(@NotEmpty Long userId, @NotEmpty String userToken, String expiryTime) {
+    this.userId = userId;
+    this.userToken = userToken;
+    this.expiryTime = expiryTime;
   }
-
 }

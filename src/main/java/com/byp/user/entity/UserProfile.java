@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,17 +20,25 @@ public class UserProfile {
   @GeneratedValue(strategy=GenerationType.AUTO)
   private Long id;
   @NotEmpty
-  private String name;
+  private String userName;
   @NotEmpty
-  private String description;
-  private int thrillFactor;
-  private int vomitFactor;
+  private String password;
+  private String fullName;
+  private String email;
+  private String phoneNumber;
+  private String address;
+  private Date birthDate;
+  private long lastLoginTimestamp;
 
-  public UserProfile(String name, String description, int thrillFactor, int vomitFactor) {
-    this.name = name;
-    this.description = description;
-    this.thrillFactor = thrillFactor;
-    this.vomitFactor = vomitFactor;
+  public UserProfile(String userName, String password, String fullName, String email,
+                     String phoneNumber, String address, Date birthDate, long lastLoginTimestamp) {
+    this.userName = userName;
+    this.password = password;
+    this.fullName = fullName;
+    this.email = email;
+    this.phoneNumber = phoneNumber;
+    this.address = address;
+    this.birthDate = birthDate;
+    this.lastLoginTimestamp = lastLoginTimestamp;
   }
-
 }

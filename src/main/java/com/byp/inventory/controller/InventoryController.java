@@ -15,24 +15,24 @@ import javax.validation.Valid;
 
 @RestController
 public class InventoryController {
-    private final ProductRepository themeParkRideRepository;
+    private final ProductRepository productRepository;
 
-    public InventoryController(ProductRepository themeParkRideRepository) {
-        this.themeParkRideRepository = themeParkRideRepository;
+    public InventoryController(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
-    @GetMapping(value = "/ride", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Product> getRides() {
-        return themeParkRideRepository.findAll();
+    @GetMapping(value = "/products", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Product> getProducts() {
+        return productRepository.findAll();
     }
 
-    @GetMapping(value = "/ride/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Product getRide(@PathVariable long id){
-        return themeParkRideRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Invalid ride id %s", id)));
+    @GetMapping(value = "/product/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Product getProduct(@PathVariable long id){
+        return productRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Invalid ride id %s", id)));
     }
 
-    @PostMapping(value = "/ride", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Product createRide(@Valid @RequestBody Product themeParkRide) {
-        return themeParkRideRepository.save(themeParkRide);
+    @PostMapping(value = "/product/insert", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Product insertProduct(@Valid @RequestBody Product product) {
+        return productRepository.save(product);
     }
 }
